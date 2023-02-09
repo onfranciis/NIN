@@ -1,21 +1,25 @@
 export const dayParser = (day: string): string => {
   const data = parseInt(day) < 10 ? day.slice(1) : day;
-  switch (data) {
-    case '1':
-      return `${data}st`;
-      break;
+  if (parseInt(day) > 0 && parseInt(day) < 32) {
+    switch (data) {
+      case '1':
+        return `${data}st`;
+        break;
 
-    case '2':
-      return `${data}nd`;
-      break;
+      case '2':
+        return `${data}nd`;
+        break;
 
-    case '3':
-      return `${data}rd`;
-      break;
+      case '3':
+        return `${data}rd`;
+        break;
 
-    default:
-      return `${data}th`;
-      break;
+      default:
+        return `${data}th`;
+        break;
+    }
+  } else {
+    return 'Invalid Day';
   }
 };
 
@@ -71,7 +75,7 @@ export const monthParser = (month: string): string => {
       break;
 
     default:
-      return '';
+      return 'Invalid Month';
       break;
   }
 };
