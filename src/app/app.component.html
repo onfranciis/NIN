@@ -18,8 +18,21 @@
   <div class="details">
     <p *ngIf="validated">
       Hello user, <br />You're a {{ gender }} and your birthday is
-      {{ dayParser() }} of {{ monthParser() }}, '{{ year }}.
+
+      <span
+        *ngIf="
+          dayParser() !== 'Invalid Day' && monthParser() !== 'Invalid Month'
+        "
+      >
+        {{ dayParser() }} of {{ monthParser() }}, '{{ year }}
+      </span>
+      <span
+        *ngIf="dayParser() == 'Invalid Day' || monthParser() == 'Invalid Month'"
+      >
+        invalid
+      </span>
     </p>
+
     <p class="error" *ngIf="error && clickedOnce">Invalid Details!</p>
   </div>
 </div>
