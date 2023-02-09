@@ -4,8 +4,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 30px 10px;
   font-size: 30px;
+}
+
+h1 {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
+  padding: 0 10px;
+  margin-bottom: 50px;
 }
 
 form {
@@ -22,10 +31,16 @@ button {
   font-weight: bold;
   border: 2px solid white;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(11, 73, 74);
 }
 
 .details {
-  padding: 20px 0;
+  font-size: 23px;
+  padding: 20px;
   line-height: 30px;
 }
 
