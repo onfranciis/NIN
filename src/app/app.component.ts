@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { lt_nin_checksum } from '../components/ChecksumValidator';
 import { dayParser, monthParser } from 'src/components/Parsers';
+import { numberValidator } from 'src/components/NumberValidator';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +23,8 @@ export class AppComponent {
   monthParser: () => string = () => monthParser(this.month);
 
   verify = () => {
-    console.log(this.value);
     const data = this.value;
-    if (data.length == 11) {
+    if (data.length == 11 && numberValidator(data)) {
       this.gender = parseInt(data.slice(0, 1)) % 2 == 0 ? 'Female' : 'Male';
       this.year = data.slice(1, 3);
       this.month = data.slice(3, 5);
