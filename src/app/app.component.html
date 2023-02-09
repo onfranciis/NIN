@@ -7,7 +7,8 @@
         placeholder="12345678901"
         [(ngModel)]="value"
         name="nin-input"
-        (blur)="clickedOnce = value == '' ? true : false"
+        (blur)="clickedOnce = value == '' ? true : false; error = true"
+        (change)="verify()"
       />
     </mat-form-field>
     <button (click)="verify()">Submit NIN</button>
@@ -15,8 +16,8 @@
 
   <div class="details">
     <p *ngIf="validated">
-      Hello user, You're a {{ gender }} and your birthday is
-      {{ dayParser() }} of {{ monthParser() }}, '{{ year }}
+      Hello user, <br />You're a {{ gender }} and your birthday is
+      {{ dayParser() }} of {{ monthParser() }}, '{{ year }}.
     </p>
     <p class="error" *ngIf="error && clickedOnce">Invalid Details!</p>
   </div>
